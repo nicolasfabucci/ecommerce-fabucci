@@ -1,0 +1,26 @@
+{
+    "_id" : ObjectId("635a8d0296bbcc7ccd01c972"),
+    "orden" : "1",
+    "fechaHora" : "2022-10-25T12:00:00.000",
+    "estado" : "Generada",
+    "email" : "nicolasfabucci@gmail.com",
+    "productos" : [
+        {
+            "codigo" : "1001",
+            "cantidad" : 3.0
+        }
+    ]
+}
+{
+    "_id" : ObjectId("635a8d4e96bbcc7ccd01c977"),
+    "orden" : "2",
+    "fechaHora" : "2022-10-25T12:34:00.000",
+    "estado" : "Generada",
+    "email" : "pedroperez@gmail.com",
+    "productos" : [
+        {
+            "codigo" : "2001",
+            "cantidad" : 2.0
+        }
+    ]
+}

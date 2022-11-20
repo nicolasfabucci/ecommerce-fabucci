@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: main-server
+  output:
+    ansi:
+      enabled: ALWAYS
+  data:
+    mongodb:
+      uri: mongodb://docker:mongopw@localhost:49153
+      database: ecommerceFabucci
+ecommerce:
+  app:
+    jwtSecret: d8f81b2432d75709c003012aaab1816ab3f15cc1f604bf11ff2dc584ba38c748711fbea9f1e2a1c10ddd4e62bd942f21379a6c9a769edccfbb1191289c0bd768
+    jwtExpirationMs: 3600000
+    jwtCookieName: ecommerceFabucci
+

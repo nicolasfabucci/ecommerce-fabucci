@@ -1,0 +1,24 @@
+{
+    "_id" : ObjectId("63593a5d96bbcc7ccd01c938"),
+    "fechaHora" : "2022-10-25T12:00:00.000",
+    "productos" : [
+        {
+            "codigo" : "1001",
+            "cantidad" : 3.0
+        }
+    ],
+    "direccionEntrega" : "Corrientes 123",
+    "orden" : "1"
+}
+{
+    "_id" : ObjectId("635a7c3096bbcc7ccd01c95a"),
+    "orden" : "2",
+    "fechaHora" : "2022-10-25T12:34:00.000",
+    "productos" : [
+        {
+            "codigo" : "2001",
+            "cantidad" : 2.0
+        }
+    ],
+    "direccionEntrega" : "San Juan 321"
+}

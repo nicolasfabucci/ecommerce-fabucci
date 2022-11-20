@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("6357f89996bbcc7ccd01c8fb"),
+    "usuario" : "Nico",
+    "nombre" : "Nicolas",
+    "telefono" : "+5493416637372",
+    "contraseña" : "tF**8137vE8x",
+    "email" : "nicolasfabucci@gmail.com"
+}
+{
+    "_id" : ObjectId("635a79b596bbcc7ccd01c949"),
+    "usuario" : "pedro",
+    "nombre" : "Pedro Perez",
+    "telefono" : "+5493415254856",
+    "contraseña" : "Ai4k&NE3Nw8#",
+    "email" : "pedroperez@gmail.com"
+}

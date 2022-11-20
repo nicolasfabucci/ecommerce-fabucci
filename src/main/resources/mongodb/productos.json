@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("6357f85096bbcc7ccd01c8f3"),
+    "codigo" : "1001",
+    "descripcion" : "Remera Manga Corta",
+    "categoria" : "Remeras",
+    "precioUnitario" : 100.0
+}
+{
+    "_id" : ObjectId("635a7b7196bbcc7ccd01c957"),
+    "codigo" : "2001",
+    "descripcion" : "Camisa Havaiana",
+    "categoria" : "Camisas",
+    "precioUnitario" : 250.0
+}
