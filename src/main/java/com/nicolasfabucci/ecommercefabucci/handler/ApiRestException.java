@@ -11,4 +11,8 @@ public class ApiRestException extends Exception {
         super(message);
         this.code = code;
     }
+
+    public ApiRestException(String message) {
+        super(message);
+    }
 }

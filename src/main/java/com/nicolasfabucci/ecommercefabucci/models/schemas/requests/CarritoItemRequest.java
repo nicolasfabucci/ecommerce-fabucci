@@ -1,15 +1,14 @@
 package com.nicolasfabucci.ecommercefabucci.models.schemas.requests;
-
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
 
-@Getter
 @Setter
+@Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class OrdenRequest {
-    @NotNull
-    private String userId;
+public class CarritoItemRequest {
+    @Min(1)
+    private Integer cantidad;
 }

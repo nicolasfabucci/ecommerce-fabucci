@@ -1,45 +1,53 @@
 package com.nicolasfabucci.ecommercefabucci.controllers;
 
+import com.nicolasfabucci.ecommercefabucci.handler.ApiRestException;
 import com.nicolasfabucci.ecommercefabucci.models.documents.ProductoDocument;
 import com.nicolasfabucci.ecommercefabucci.models.schemas.requests.ProductoRequest;
 import com.nicolasfabucci.ecommercefabucci.service.ProductoService;
 import lombok.RequiredArgsConstructor;
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.util.Optional;
+import java.util.List;
 
+@Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api/producto")
 @RequiredArgsConstructor
 public class ProductoController {
-  /*  @Autowired
+
     private final ProductoService productoService;
 
-    @GetMapping(value = "producto/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> getProductoById(@PathVariable(name = "id") ObjectId id) {
-        final Optional<ProductoDocument> producto = productoService.getProductoById(id);
-        if (producto.isPresent()) {
-            return ResponseEntity.ok(producto);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping
+    public List<ProductoDocument> getAll() {
+        return productoService.getAll();
     }
 
-    @PostMapping(value = "producto", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> guardarProducto(@RequestBody ProductoRequest productoRequest) {
-        try {
-            final ProductoDocument productoDocumentGuardado = productoService.postNewProducto(productoRequest);
-            return ResponseEntity.created(URI.create("")).body(productoDocumentGuardado);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.internalServerError().body(null);
-        }
-    }*/
+    @GetMapping("/{codigo}")
+    public ProductoDocument getByCode(@PathVariable String codigo) throws ApiRestException {
+        return productoService.getByCodigo(codigo);
+    }
+
+    @GetMapping("categoria/{categoria}")
+    public List<ProductoDocument> getByCategory(@RequestParam String categoria) throws ApiRestException {
+        return productoService.getByCategoria(categoria);
+    }
+
+    @PostMapping
+    public ProductoDocument create(@Validated @RequestBody ProductoRequest request) throws ApiRestException {
+        return productoService.create(request);
+    }
+
+    @PutMapping("/{codigo}")
+    public ProductoDocument update(@PathVariable String codigo, @RequestBody ProductoRequest request) throws ApiRestException {
+        return productoService.update(codigo,request);
+    }
+
+    @DeleteMapping("/{codigo}")
+    public void delete(@PathVariable String codigo) throws ApiRestException {
+        productoService.delete(codigo);
+    }
 
 
 }

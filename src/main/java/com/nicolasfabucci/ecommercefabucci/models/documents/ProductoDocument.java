@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 public class ProductoDocument {
     @Id
-    private ObjectId id;
+    private String id;
     private String codigo;
     private Double precio;
     private String categoria;

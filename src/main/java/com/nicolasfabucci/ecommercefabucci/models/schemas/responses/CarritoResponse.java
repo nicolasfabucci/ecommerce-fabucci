@@ -2,20 +2,18 @@ package com.nicolasfabucci.ecommercefabucci.models.schemas.responses;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nicolasfabucci.ecommercefabucci.models.documents.CarritoItem;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class OrdenResponse {
-    private Double total;
-    private String email;
+public class CarritoResponse {
     private List<CarritoItem> items;
-    private Long orderNumber;
+    private LocalDate fechaHora;
+    private String direccionEntrega;
+    private String userId;
 }

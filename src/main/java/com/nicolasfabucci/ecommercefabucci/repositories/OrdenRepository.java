@@ -2,8 +2,11 @@ package com.nicolasfabucci.ecommercefabucci.repositories;
 
 import com.nicolasfabucci.ecommercefabucci.models.documents.OrdenDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface OrdenRepository extends MongoRepository<OrdenDocument, Integer> {
-    public OrdenDocument findByEmail(String email);
-    public OrdenDocument findByNumeroOrden(Integer numeroOrden);
+import java.util.Optional;
+
+
+public interface OrdenRepository extends MongoRepository<OrdenDocument, Long> {
+    Optional<OrdenDocument> findByOrderNumber(Long orderNumber);
 }

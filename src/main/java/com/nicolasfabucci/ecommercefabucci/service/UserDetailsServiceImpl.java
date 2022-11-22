@@ -1,7 +1,9 @@
 package com.nicolasfabucci.ecommercefabucci.service;
 
+import com.nicolasfabucci.ecommercefabucci.handler.NotFoundException;
 import com.nicolasfabucci.ecommercefabucci.models.documents.UsuarioDocument;
 import com.nicolasfabucci.ecommercefabucci.repositories.UsuarioRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,7 +11,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
 @Service
+@Slf4j
 public class UserDetailsServiceImpl implements UserDetailsService {
   @Autowired
   UsuarioRepository userRepository;
@@ -21,6 +27,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
     return UserDetailsImpl.build(user);
+  }
+
+  public Optional<UserDetails> getUserById(final String id) {
+    Optional<UserDetails> user = userRepository.findById();
+    if(user.isPresent()) {
+      log.info("Usuario encontrado" + LocalDate.now());
+      return user;
+    } else {
+      log.error("Usuario no encontrado en la base de datos" + LocalDate.now());
+      throw new NotFoundException("No existe usuario con Id " + id);
+    }
   }
 
 }
