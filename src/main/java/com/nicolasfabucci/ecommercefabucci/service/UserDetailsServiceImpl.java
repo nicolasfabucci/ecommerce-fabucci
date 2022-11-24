@@ -29,14 +29,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     return UserDetailsImpl.build(user);
   }
 
-  public Optional<UserDetails> getUserById(final String id) {
-    Optional<UserDetails> user = userRepository.findById();
+  public Optional<UsuarioDocument> getUserById(final String username) {
+    Optional<UsuarioDocument> user = userRepository.findByUsername(username);
     if(user.isPresent()) {
       log.info("Usuario encontrado" + LocalDate.now());
       return user;
     } else {
       log.error("Usuario no encontrado en la base de datos" + LocalDate.now());
-      throw new NotFoundException("No existe usuario con Id " + id);
+      throw new NotFoundException("No existe usuario");
     }
   }
 
