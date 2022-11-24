@@ -88,7 +88,7 @@ public class OrdenService {
         Double total = 0.0;
 
         for(CarritoItem c : items) {
-            Optional<ProductoDocument> product = productoRepository.findById(c.getCodigo());
+            Optional<ProductoDocument> product = Optional.ofNullable(productoRepository.findByCodigo(c.getCodigo()));
             if (product.isPresent()) {
                 total = total + (product.get().getPrecio() * c.getCantidad().doubleValue());
             }

@@ -22,8 +22,8 @@ public interface CarritoService {
 
     public List<CarritoItem> getCartProducts(String userId);
 
-    public void addProductToCart(String userId, String productId, CarritoItemRequest item);
+    public void addProductToCart(String userId, Long productId, CarritoItemRequest item);
 
-    public void deleteProductOnCart(String cartId, String code);
+    public void deleteProductOnCart(String cartId, Long code);
 
 }

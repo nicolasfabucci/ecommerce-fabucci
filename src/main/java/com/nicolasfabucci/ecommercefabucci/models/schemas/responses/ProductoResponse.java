@@ -10,10 +10,8 @@ import java.time.LocalDateTime;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductoResponse {
-    private String codigo;
+    private Long codigo;
     private Double precio;
     private String categoria;
-    private String description;
-    private LocalDateTime createDate;
-    private LocalDateTime updateDate;
+    private String descripcion;
 }

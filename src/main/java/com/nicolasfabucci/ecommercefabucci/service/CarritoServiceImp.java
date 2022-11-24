@@ -105,7 +105,7 @@ public class CarritoServiceImp implements CarritoService {
         }
     }
 
-    public void addProductToCart(String userId, String productId, CarritoItemRequest item) {
+    public void addProductToCart(String userId, Long productId, CarritoItemRequest item) {
         Optional<CarritoDocument> cart = cartRepository.findByUserId(userId);
         Optional<ProductoDocument> product = Optional.ofNullable(productRepository.findByCodigo(productId));
         if(cart.isPresent() && product.isPresent()) {
@@ -135,7 +135,7 @@ public class CarritoServiceImp implements CarritoService {
         }
     }
 
-    public void deleteProductOnCart(String userId, String code) {
+    public void deleteProductOnCart(String userId, Long code) {
         Optional<CarritoDocument> cart = cartRepository.findByUserId(userId);
         Optional<ProductoDocument> product = Optional.ofNullable(productRepository.findByCodigo(code));
 
@@ -154,7 +154,7 @@ public class CarritoServiceImp implements CarritoService {
         }
     }
 
-    private boolean checkProductNotExistsOnCart(String code, CarritoDocument cart) {
+    private boolean checkProductNotExistsOnCart(Long code, CarritoDocument cart) {
         boolean exists = true;
 
         for(CarritoItem c: cart.getItems()) {
@@ -166,7 +166,7 @@ public class CarritoServiceImp implements CarritoService {
         return exists;
     }
 
-    private Optional<CarritoItem> getCartItemByProductCode(String code, List<CarritoItem> items) {
+    private Optional<CarritoItem> getCartItemByProductCode(Long code, List<CarritoItem> items) {
         Optional<CarritoItem> exists = Optional.empty();
 
         for(CarritoItem c : items) {

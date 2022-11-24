@@ -13,10 +13,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class ProductoDocument {
     @Id
     private String id;
-    private String codigo;
+    private Long codigo;
     private Double precio;
     private String categoria;
     private String descripcion;

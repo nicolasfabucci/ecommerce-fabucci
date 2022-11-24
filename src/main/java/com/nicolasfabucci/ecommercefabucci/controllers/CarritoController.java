@@ -50,13 +50,13 @@ public class CarritoController {
     }
 
     @PostMapping(value="/cart/{userId}/product/{productId}")
-    public ResponseEntity<?> addProductToCart(@PathVariable(name="userId") String userId, @PathVariable(name="productId") String productId, @RequestBody CarritoItemRequest product) {
+    public ResponseEntity<?> addProductToCart(@PathVariable(name="userId") String userId, @PathVariable(name="productId") Long productId, @RequestBody CarritoItemRequest product) {
         cartServiceImpl.addProductToCart(userId, productId, product);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping(value="/cart/{userId}/product/{productId}")
-    public ResponseEntity<?> deleteProductInCart(@PathVariable(name="userId") String cartId, @PathVariable(name="productId") String productId) {
+    public ResponseEntity<?> deleteProductInCart(@PathVariable(name="userId") String cartId, @PathVariable(name="productId") Long productId) {
         cartServiceImpl.deleteProductOnCart(cartId, productId);
         return ResponseEntity.noContent().build();
     }

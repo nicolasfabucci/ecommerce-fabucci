@@ -9,5 +9,5 @@ import lombok.*;
 @NoArgsConstructor
 public class CarritoItem {
     private Integer cantidad;
-    private String codigo;
+    private Long codigo;
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ProductoRepository extends MongoRepository<ProductoDocument, String> {
-    ProductoDocument findByCodigo(String codigo);
+    ProductoDocument findByCodigo(Long codigo);
     List<ProductoDocument> findByCategoria(String categoria);
+
+    void deleteByCodigo(Long codigo);
 }

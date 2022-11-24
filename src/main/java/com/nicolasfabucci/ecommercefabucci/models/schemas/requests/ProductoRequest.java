@@ -10,15 +10,13 @@ import javax.validation.constraints.NotNull;
 @Data
 @Builder
 public class ProductoRequest {
-    @NotBlank
-    @NotNull
-    private String codigo;
-    @NotNull
+    private Long codigo;
+    @NotNull(message = "Debe ingresar un precio")
     private Double precio;
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "Debe ingresar una descripcion")
+    @NotNull(message = "Debe ingresar una descripcion")
     private String descripcion;
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "Debe ingresar una categoria")
+    @NotNull(message = "Debe ingresar una categoria")
     private String categoria;
 }
